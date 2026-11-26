@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><title>Link Medi 테스트</title>
+<style>body{font:14px monospace;padding:16px}.ok{color:#15803d}.bad{color:#b91c1c;font-weight:bold}</style>
+<script type="importmap">{"imports":{"node:assert/strict":"./assert-shim.js"}}</script></head>
+<body><h3>Link Medi 단위 테스트 (브라우저 실행)</h3><pre id="out"></pre><div id="summary"></div>
+<script type="module">
+const out = document.getElementById("out");
+console.log = (...a) => { out.insertAdjacentHTML("beforeend", `<span class="ok">${a.join(" ")}</span>\n`); };
+try { await import("./run.mjs"); document.getElementById("summary").innerHTML = `<b class="ok">PASS</b>`; }
+catch (e) { document.getElementById("summary").innerHTML = `<b class="bad">FAIL: ${e.message}</b>`; }
+</script></body></html>
